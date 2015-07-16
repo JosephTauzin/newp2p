@@ -5,15 +5,10 @@
   
     <% @tests.each do |test| %>
       
-        <p>Test</p>
-        <div id=reem>
-          
+        
+        <div id=text>
+        <%= "#{test.test} -#{test.tester}" %>
         </div>
-        <%= test.test %>
-        
-        <p>Tester</p>
-        <%= test.tester %>
-        
         <%= link_to 'Show', test %>
         <%= link_to 'Edit', edit_test_path(test) %>
         <%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %>

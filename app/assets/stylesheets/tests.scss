@@ -1,9 +1,14 @@
 // Place all the styles related to the tests controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#reem {
-    background-color: blue;
-    height: 100px;
-    width: 100px;
-    
+#text{
+    //color: blue;
+    height: 120px;
+    width: 98%;
+    border-style:solid;
+    border-radius:3%;
+    border-color:#008AB8;
+    font-family: Arial;
+    font-size: 1.5em;
+    margin: 1%;
 }
