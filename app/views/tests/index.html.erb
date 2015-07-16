@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tests</h1>
+
+  
+    <% @tests.each do |test| %>
+      
+        <p>Test</p>
+        <div id=reem>
+          
+        </div>
+        <%= test.test %>
+        
+        <p>Tester</p>
+        <%= test.tester %>
+        
+        <%= link_to 'Show', test %>
+        <%= link_to 'Edit', edit_test_path(test) %>
+        <%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %>
+      
+    <% end %>
+  
+<br/>
+
+<%= link_to 'New Test', new_test_path %>
