@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+    <%random_number=rand(3)%>
+      <%case random_number%>
+      <%when 0%>
+      <%=link_to '#P2P',root_path, class: 'navbar-brand'%>
+      <%when 1%>
+      <%=link_to '#Savep2p',root_path, class: 'navbar-brand'%>
+      <%when 2%>
+      <%=link_to '#JoinTheCause',root_path, class: 'navbar-brand'%>
+      <%end%>
+      
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right navbar-brand">
+        <%= link_to 'Sign Up', new_user_registration_path, class: 'btn btn-default'%>
+        <%=link_to 'Our Voices', tests_path, class:'btn btn-default'%>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
