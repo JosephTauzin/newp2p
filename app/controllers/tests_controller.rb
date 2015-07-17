@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
   before_action :set_test, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
   # GET /tests
   # GET /tests.json
   def index
@@ -14,7 +15,7 @@ class TestsController < ApplicationController
 
   # GET /tests/new
   def new
-    @test = Test.new
+    @test = current_user.tests.build
   end
 
   # GET /tests/1/edit
@@ -24,7 +25,7 @@ class TestsController < ApplicationController
   # POST /tests
   # POST /tests.json
   def create
-    @test = Test.new(test_params)
+    @test = current_user.tests.build(test_params)
 
     respond_to do |format|
       if @test.save
@@ -70,5 +71,10 @@ class TestsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def test_params
       params.require(:test).permit(:test, :tester)
+    end
+    def correct_user
+    @test = current_user.tests.find_by(id:params[:id])
+    redirect_to tests_path, notice: "Not authorized to edit this pin" if @test.nil?
+      
     end
 end

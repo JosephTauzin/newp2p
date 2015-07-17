@@ -9,6 +9,7 @@
   <strong>Tester:</strong>
   <%= @test.tester %>
 </p>
-
+<% if @test.user == current_user %>
 <%= link_to 'Edit', edit_test_path(@test) %> |
+<% end %>
 <%= link_to 'Back', tests_path %>

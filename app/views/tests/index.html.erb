@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Tests</h1>
+<h1>Listing Testimonies</h1>
 
   
     <% @tests.each do |test| %>
@@ -9,12 +9,13 @@
         <div id=text>
         <%= "#{test.test} -#{test.tester}" %>
         </div>
+        <% if test.user == current_user %>
         <%= link_to 'Show', test %>
         <%= link_to 'Edit', edit_test_path(test) %>
         <%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %>
-      
+      <%end%>
     <% end %>
   
 <br/>
 
-<%= link_to 'New Test', new_test_path %>
+<%= link_to 'New Testimony', new_test_path %>
