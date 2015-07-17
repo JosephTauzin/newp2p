@@ -1,21 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Testimonies</h1>
+<h1>Testimonies</h1>
 
   
     <% @tests.each do |test| %>
       
-        
+        <% if test.test.length + test.tester.length > 640 %>
+        <div id=text>
+        <% x=640-test.tester.length %>
+        <%= "#{test.test[0..x]} ... -#{test.tester}"%>
+        </div>
+        <%else%>
         <div id=text>
         <%= "#{test.test} -#{test.tester}" %>
         </div>
+        <%end%>
         <% if test.user == current_user %>
-        <%= link_to 'Show', test %>
-        <%= link_to 'Edit', edit_test_path(test) %>
-        <%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Show All', test, class: 'btn btn-info' %>
+        <%= link_to 'Edit', edit_test_path(test), class: 'btn btn-info'%>
+        <%= link_to 'Destroy', test, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-info' %>
+        <%= link_to 'New Testimony', new_test_path, class: 'btn btn-info' %>
       <%end%>
     <% end %>
   
 <br/>
 
-<%= link_to 'New Testimony', new_test_path %>
+
